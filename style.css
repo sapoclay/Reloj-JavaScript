@@ -1,0 +1,207 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--hue: 290;
+	--bg: hsl(var(--hue), 90%, 90%);
+	--fg: hsl(var(--hue), 90%, 10%);
+	--primary: hsl(var(--hue), 90%, 50%);
+	--trans-dur: 0.3s;
+	font-size: calc(40px + (80 - 40) * (100vw - 320px) / (2560 - 320));
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	font: 1em/1.5 "Comfortaa", sans-serif;
+	height: 100vh;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: center; /* Añade esta línea */
+  }
+
+/*Fecha*/
+
+.date-container {
+	text-align: center;
+	font-family: "Comfortaa", sans-serif;
+	font-size: calc(28px + (80 - 40) * (100vw - 320px) / (2560 - 320));
+	margin-top: 1rem; /* Añade espacio entre la fecha y el reloj */
+  }
+  
+
+.date {
+	line-height: 1;
+	text-align: center;
+	font-size: inherit; /* Usa el tamaño de fuente heredado */
+	color: #a2a2a2;
+}
+
+.date-capitalized:first-letter {
+	text-transform: uppercase;
+  }
+
+/*Reloj*/
+.clock {
+	display: flex;
+	align-items: center;
+	margin: 0px;
+}
+
+.clock__colon,
+.clock__digits {
+	line-height: 1;
+	height: 1rem;
+	text-align: center;
+}
+
+.clock__digits {
+	font-variation-settings: "wght" 300;
+	width: 2rem;
+}
+
+.clock__digits:nth-child(1),
+.clock__digits:nth-child(7) {
+	transform: scale(0);
+}
+
+.clock__digits:nth-child(2),
+.clock__digits:nth-child(6) {
+	transform: scale(0.33);
+}
+
+.clock__digits:nth-child(3),
+.clock__digits:nth-child(5) {
+	transform: scale(0.67);
+}
+
+.clock__digits:nth-child(4) {
+	font-variation-settings: "wght" 800;
+	border:1px solid #fff;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #a2a2a2;
+	color: #000;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.clock__digits:not(:nth-child(4)) {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.clock__unit--rolling .clock__digits {
+	animation: digitsMove1 0.3s ease-in-out;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(2) {
+	animation-name: digitsMove2;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(3) {
+	animation-name: digitsMove3;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(4) {
+	animation-name: digitsMove4;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(5) {
+	animation-name: digitsMove5;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(6) {
+	animation-name: digitsMove6;
+}
+
+.clock__unit--rolling .clock__digits:nth-child(7) {
+	animation: none;
+}
+
+/* tema oscuro */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue), 90%, 10%);
+		--fg: hsl(var(--hue), 90%, 90%);
+	}
+}
+
+/* Animaciones */
+@keyframes digitsMove1 {
+	from {
+		transform: translateY(100%) scale(0.33);
+	}
+
+	to {
+		transform: translateY(0) scale(0);
+	}
+}
+
+@keyframes digitsMove2 {
+	from {
+		transform: translateY(100%) scale(0.67);
+	}
+
+	to {
+		transform: translateY(0%) scale(0.33);
+	}
+}
+
+@keyframes digitsMove3 {
+	from {
+		font-variation-settings: "wght" 700;
+		transform: translateY(100%) scale(1);
+	}
+
+	to {
+		font-variation-settings: "wght" 300;
+		transform: translateY(0) scale(0.67);
+	}
+}
+
+@keyframes digitsMove4 {
+	from {
+		font-variation-settings: "wght" 300;
+		transform: translateY(100%) scale(0.67);
+	}
+
+	to {
+		font-variation-settings: "wght" 700;
+		transform: translateY(0) scale(1);
+	}
+}
+
+@keyframes digitsMove5 {
+	from {
+		transform: translateY(100%) scale(0.33);
+	}
+
+	to {
+		transform: translateY(0) scale(0.67);
+	}
+}
+
+@keyframes digitsMove6 {
+	from {
+		transform: translateY(100%) scale(0);
+	}
+
+	to {
+		transform: translateY(0) scale(0.33);
+	}
+}
