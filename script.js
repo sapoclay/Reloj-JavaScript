@@ -21,7 +21,7 @@ class Clock2 {
 		const m = date.getMinutes();
 		const s = date.getSeconds();
 		const ap = h > 11 ? "PM" : "AM";
-		// milisegundos desde 1/1/1970
+		// milisegundos desde 1/1/1970 Gnu
 		const since1970 = date.getTime() - date.getTimezoneOffset() * 60 * 1000;
 		// tratar con medianoche y 13:00 si no se utiliza el reloj de 24 horas
 		if (!this.is24Hours) {
