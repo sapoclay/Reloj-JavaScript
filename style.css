@@ -24,37 +24,43 @@ body {
 		color var(--trans-dur);
 }
 
+/* Contenedor del reloj y la fecha */
+
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	text-align: center; /* Añade esta línea */
-  }
+	text-align: center;
+}
 
-/*Fecha*/
+/* Fecha */
 
 .date-container {
 	text-align: center;
 	font-family: "Comfortaa", sans-serif;
 	font-size: calc(28px + (80 - 40) * (100vw - 320px) / (2560 - 320));
-	margin-top: 1rem; /* Añade espacio entre la fecha y el reloj */
-  }
-  
+	margin-top: 1rem;
+}
+
 
 .date {
 	line-height: 1;
 	text-align: center;
-	font-size: inherit; /* Usa el tamaño de fuente heredado */
+	font-size: inherit;
+	/* Usa el tamaño de fuente heredado */
 	color: #a2a2a2;
 }
 
+/* Capitalizar la primera letra del día */
+
 .date-capitalized:first-letter {
 	text-transform: uppercase;
-  }
- 
-/*Reloj*/
+}
+
+/* Reloj */
+
 .clock {
 	display: flex;
 	align-items: center;
@@ -88,9 +94,10 @@ body {
 	transform: scale(0.67);
 }
 
+/* Línea central de números*/
 .clock__digits:nth-child(4) {
 	font-variation-settings: "wght" 800;
-	border:1px solid #fff;
+	border: 1px solid #fff;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	background-color: #a2a2a2;
@@ -133,7 +140,8 @@ body {
 	animation: none;
 }
 
-/* Tema oscuro */
+/* Oscurecer fondo */
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--bg: hsl(var(--hue), 90%, 10%);
@@ -142,6 +150,7 @@ body {
 }
 
 /* Animaciones */
+
 @keyframes digitsMove1 {
 	from {
 		transform: translateY(100%) scale(0.33);
