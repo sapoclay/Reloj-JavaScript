@@ -133,7 +133,7 @@ body {
 	animation: none;
 }
 
-/* tema oscuro */
+/* Tema oscuro */
 @media (prefers-color-scheme: dark) {
 	:root {
 		--bg: hsl(var(--hue), 90%, 10%);
