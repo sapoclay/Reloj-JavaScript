@@ -53,7 +53,7 @@ body {
 .date-capitalized:first-letter {
 	text-transform: uppercase;
   }
-
+ 
 /*Reloj*/
 .clock {
 	display: flex;
